@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8C32A4E9-BDD0-416E-8CD7-1FB6FA28571F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BenchLab.Model</RootNamespace>
+    <AssemblyName>BenchLab.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bases\ActionResult.cs" />
+    <Compile Include="Bases\Collection\IListPaging.cs" />
+    <Compile Include="Bases\Collection\MTObservableCollection.cs" />
+    <Compile Include="Bases\Collection\PSEntityList.cs" />
+    <Compile Include="Bases\Collection\BenchLabObjectList.cs" />
+    <Compile Include="Bases\PropertyNotificationEventArgs.cs" />
+    <Compile Include="Bases\BenchLabChildParent.cs" />
+    <Compile Include="Bases\BenchLabEntity.cs" />
+    <Compile Include="Bases\BenchLabModel.cs" />
+    <Compile Include="Bases\BenchLabObject.cs" />
+    <Compile Include="Collection\LabTestCategoryCollection.cs" />
+    <Compile Include="Collection\LabTestReportCollection.cs" />
+    <Compile Include="Collection\LabTestUnitCollection.cs" />
+    <Compile Include="Collection\PatientTestReportCollection.cs" />
+    <Compile Include="Collection\LabTestCollection.cs" />
+    <Compile Include="Collection\PatientCollection.cs" />
+    <Compile Include="Collection\UserLoginCollection.cs" />
+    <Compile Include="Entities\LabTest.cs" />
+    <Compile Include="Entities\LabTestReport.cs" />
+    <Compile Include="Entities\LabTestUnit.cs" />
+    <Compile Include="Entities\Patient.cs" />
+    <Compile Include="Entities\LabTestCategory.cs" />
+    <Compile Include="Entities\PatientTestReport.cs" />
+    <Compile Include="Entities\User.cs" />
+    <Compile Include="Entities\UserLogin.cs" />
+    <Compile Include="Enum\EnumValues.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\CheckItem.cs" />
+    <Compile Include="Utilities\Extensions.cs" />
+    <Compile Include="Utilities\Helper.cs" />
+    <Compile Include="Utilities\IDeserializationDefault.cs" />
+    <Compile Include="Utilities\Serializer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BenchLab.Resources\BenchLab.Resources.csproj">
+      <Project>{eaec48a0-f95d-43cd-a75c-55088651b503}</Project>
+      <Name>BenchLab.Resources</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

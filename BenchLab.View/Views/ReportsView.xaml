@@ -1,0 +1,249 @@
+﻿<UserControl x:Class="BenchLab.View.ReportsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:resources="clr-namespace:BenchLab.Resources;assembly=BenchLab.Resources" 
+             xmlns:view="clr-namespace:BenchLab.View"
+             xmlns:converters="clr-namespace:BenchLab.View.Converters"
+             xmlns:controls="clr-namespace:BenchLab.UI.UserControls.Controls;assembly=BenchLab.UI.UserControls"
+             xmlns:userControls="clr-namespace:BenchLab.UI.UserControls;assembly=BenchLab.UI.UserControls"
+             xmlns:helper="clr-namespace:BenchLab.UI.UserControls.Helper;assembly=BenchLab.UI.UserControls"
+             x:Name="reportsPage"
+             mc:Ignorable="d">
+    <AdornerDecorator>
+        <Grid>
+            <Grid.Resources>
+                <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+            </Grid.Resources>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <!--<RowDefinition Height="3" />-->
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="5" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="5" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="5" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="5" />
+                </Grid.RowDefinitions>
+
+                <controls:BenchLabLabel
+                                AddEndingPunctuation="True"
+                                Content="{x:Static resources:LabelResources.FirstName}" />
+                <Grid Grid.Column="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBox
+                            x:Name="txtFirstName"
+                            Text="{Binding SearchPatientFirstNameText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                            Margin="8,0,0,0"
+                            Width="200"
+                            MaxLength="150" />
+                </Grid>
+
+                <controls:BenchLabLabel
+                                Grid.Row="0" Grid.Column="3"
+                                AddEndingPunctuation="True"
+                                Content="{x:Static resources:LabelResources.MiddleName}" />
+                <Grid Grid.Column="5" Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBox
+                            x:Name="txtMiddleName"
+                            Margin="8,0,0,0"
+                            Text="{Binding SearchPatientMiddleNameText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                            Width="200"
+                            MaxLength="150" />
+                </Grid>
+
+                <controls:BenchLabLabel
+                                Grid.Row="0" Grid.Column="6"
+                                AddEndingPunctuation="True"
+                                Content="{x:Static resources:LabelResources.LastName}" />
+
+                <Grid Grid.Column="8" Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBox
+                            x:Name="txtLastName"
+                            Margin="8,0,0,0"
+                            Text="{Binding SearchPatientLastNameText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                            Width="200"
+                            MaxLength="150" />
+                </Grid>
+
+                <controls:BenchLabLabel
+                                Grid.Row="2" Grid.Column="0"
+                                AddEndingPunctuation="True"
+                                Content="{x:Static resources:LabelResources.SN}" />
+                
+                <Grid Grid.Column="2" Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBox
+                            x:Name="txtSN"
+                            Margin="8,0,0,0"
+                            Text="{Binding SearchSnText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                            Width="200"
+                            MaxLength="150" />
+                </Grid>
+
+                <controls:BenchLabLabel
+                                Grid.Row="2" Grid.Column="3"
+                                AddEndingPunctuation="True"
+                                Content="{x:Static resources:LabelResources.LabNr}" />
+
+                <Grid Grid.Column="5" Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBox
+                            x:Name="txtLabNr"
+                            Margin="8,0,0,0"
+                            Text="{Binding SearchLabNrText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                            Width="200"
+                            MaxLength="150" />
+                </Grid>
+
+                <controls:BenchLabLabel
+                                Grid.Row="2" Grid.Column="6"
+                                AddEndingPunctuation="True"
+                                Content="{x:Static resources:LabelResources.Technician}" />
+
+                <Grid Grid.Column="8" Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBox
+                            x:Name="txtTechnician"
+                            Margin="8,0,0,0"
+                            Text="{Binding SearchTechnicianText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                            Width="200"
+                            MaxLength="150" />
+                </Grid>
+
+                <Grid
+                            HorizontalAlignment="Center"
+                            Grid.Row="4" Grid.Column="8">
+                    <Button
+                                Content="{x:Static  resources:ButtonResources.Search}"
+                                Command="{Binding SearchCommand}" />
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <controls:ProgressIndicator
+                    ProgressColour="{StaticResource AccentColorBlueBrush}"
+                    Height="6"
+                    Width="600" Margin="0,0,0,10"
+                    Visibility="{Binding Path=DataContext.ShowProgressBar, ElementName=customerPage, Converter={StaticResource BooleanToVisibilityConverter}}" />
+
+                <DataGrid
+                    Grid.Row="1"
+                    ItemsSource="{Binding Entity.ObservableList}"
+                    AutoGenerateColumns="False"
+                    IsReadOnly="True"
+                    SelectionMode="Extended"
+                    view:BenchLabAttachedProperties.OnDoubleClick="{Binding ReportDoubleClick}">
+                    <DataGrid.Resources>
+                        <helper:BindingProxy x:Key="proxy" Data="{Binding DataContext, ElementName=reportsPage}" />
+                    </DataGrid.Resources>
+
+                    <DataGrid.ItemContainerStyle>
+                        <Style TargetType="{x:Type DataGridRow}">
+                            <Setter Property="IsSelected" Value="{Binding Path=IsSelected, Mode=TwoWay}" />
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="FontWeight" Value="Bold" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGrid.ItemContainerStyle>
+
+                    <DataGrid.Columns>
+                        <DataGridTextColumn
+                            MinWidth="140"
+                            Header="{x:Static resources:LabelResources.SN}"
+                            Binding="{Binding Sn}" 
+                            ElementStyle="{StaticResource DataGridTextStyle}" />
+                        <DataGridTextColumn
+                            MinWidth="150"
+                            Header="{x:Static resources:LabelResources.LabNr}"
+                            Binding="{Binding LabNr}" 
+                            ElementStyle="{StaticResource DataGridTextStyle}" />
+                        <DataGridTextColumn
+                            MinWidth="60"
+                            Header="{x:Static resources:LabelResources.FirstName}"
+                            Binding="{Binding Patient.FirstName}" 
+                            ElementStyle="{StaticResource DataGridTextStyle}" />
+                        <DataGridTextColumn
+                            MinWidth="60"
+                            Header="{x:Static resources:LabelResources.MiddleName}"
+                            Binding="{Binding Patient.MiddleName}" 
+                            ElementStyle="{StaticResource DataGridTextStyle}" />
+                        <DataGridTextColumn
+                            MinWidth="60"
+                            Header="{x:Static resources:LabelResources.LastName}"
+                            Binding="{Binding Patient.LastName}" 
+                            ElementStyle="{StaticResource DataGridTextStyle}" />
+                        <DataGridTextColumn
+                            MinWidth="50"
+                            Header="{x:Static resources:LabelResources.Date}" 
+                            Binding="{Binding ReportDateNp}"
+                            ElementStyle="{StaticResource DataGridTextStyle}" />
+                        <DataGridTextColumn
+                            MinWidth="250"
+                            Header="{x:Static resources:LabelResources.Technician}"
+                            Binding="{Binding TechnicianName}"
+                            ElementStyle="{StaticResource DataGridTextStyle}" >
+                        </DataGridTextColumn>
+                        <DataGridTextColumn
+                            MinWidth="100"
+                            Header="{x:Static resources:LabelResources.Consultant}"
+                            Binding="{Binding ConsultantName}"
+                            ElementStyle="{StaticResource DataGridTextStyle}" >
+                        </DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+                
+            </Grid>
+
+            <Rectangle
+                Grid.RowSpan="3"
+                Opacity="0.1"
+                Fill="{StaticResource AccentColorLightBlueBrush}"
+                Visibility="{Binding ChildViewModel, Converter={converters:NullObjectToVisibiltyConverter}}" />
+            <userControls:ModalDailogWindow
+                Grid.RowSpan="3"
+                view:BenchLabAttachedProperties.ModelDialogContent="{Binding ChildViewModel}"
+                ViewMode="{Binding ChildViewModel.ViewMode}"
+                IsActive="{Binding ChildViewModel.IsActive}"
+                Visibility="{Binding ChildViewModel, Converter={converters:NullObjectToVisibiltyConverter}}" />
+        </Grid>
+    </AdornerDecorator>
+</UserControl>
